@@ -1,0 +1,2 @@
+# 学生通过 "Download ZIP" 或 GitHub Classroom 初始克隆时，排除 tests/ 文件夹
+tests/ export-ignore

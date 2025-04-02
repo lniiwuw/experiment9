@@ -103,5 +103,6 @@ if __name__ == '__main__':
         # 可以测试输出预测结果
         if (nn.predict(i) >= 0.40) and (nn.predict(i) <= 0.60):
             flag = flag + 1
+    print(flag)
     if flag == 4:
         print('success')
