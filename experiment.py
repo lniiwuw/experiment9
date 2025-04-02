@@ -65,14 +65,14 @@ class NeuralNetwork:
             # 反向更新
             # 测试数据
             ########### 开始1 #############
-            for l in range(len(a) - 2, 0, -1):
-                deltas.append(deltas[-1].dot(self.weights[l].T) * self.activation_deriv(a[l]))
-                deltas.reverse()
+            # for l in range(len(a) - 2, 0, -1):
+            #     deltas.append(deltas[-1].dot(self.weights[l].T) * self.activation_deriv(a[l]))
+            #     deltas.reverse()
 
-            for i in range(len(self.weights)):
-                layer = np.atleast_2d(a[i])
-                delta = np.atleast_2d(deltas[i])
-                self.weights[i] += learning_rate * layer.T.dot(delta)
+            # for i in range(len(self.weights)):
+            #     layer = np.atleast_2d(a[i])
+            #     delta = np.atleast_2d(deltas[i])
+            #     self.weights[i] += learning_rate * layer.T.dot(delta)
             ########### 结束1 #############
 
     def predict(self, x):
