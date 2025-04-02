@@ -63,6 +63,7 @@ class NeuralNetwork:
             deltas = [error * self.activation_deriv(a[-1])]
 
             # 反向更新
+            # 测试数据
             ########### 开始1 #############
             for l in range(len(a) - 2, 0, -1):
                 deltas.append(deltas[-1].dot(self.weights[l].T) * self.activation_deriv(a[l]))
