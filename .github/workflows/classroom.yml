@@ -17,10 +17,12 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
       - name: Run tests
-        run: pytest tests/ -v
-      - name: Export score
-        if: ${{ success() }}
+        id: test
+        run: pytest tests/ -v && echo "result=success" >> $GITHUB_OUTPUT || echo "result=fail" >> $GITHUB_OUTPUT
+      - name: Set score
         run: |
-          echo "TEST_RESULT=100" >> $GITHUB_ENV
-        else:
-          echo "TEST_RESULT=0" >> $GITHUB_ENV
+          if [ "${{ steps.test.outputs.result }}" == "success" ]; then
+            echo "TEST_RESULT=100" >> $GITHUB_ENV
+          else
+            echo "TEST_RESULT=0" >> $GITHUB_ENV
+          fi
